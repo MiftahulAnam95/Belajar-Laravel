@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 650" role="img" aria-labelledby="title desc">
+  <title id="title">Laravel Beginner Lab</title>
+  <desc id="desc">Ilustrasi alur Laravel dari route ke controller, Blade, dan database.</desc>
+  <defs>
+    <linearGradient id="panel" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#fff5f5"/>
+    </linearGradient>
+    <linearGradient id="screen" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#17213a"/>
+      <stop offset="1" stop-color="#111827"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ff2d20"/>
+      <stop offset="1" stop-color="#0ea5b7"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="18" stdDeviation="22" flood-color="#1f2a54" flood-opacity=".18"/>
+    </filter>
+  </defs>
+  <rect width="900" height="650" rx="34" fill="#fff8f8"/>
+  <path d="M82 104h736a36 36 0 0 1 36 36v372a36 36 0 0 1-36 36H82a36 36 0 0 1-36-36V140a36 36 0 0 1 36-36Z" fill="url(#panel)" filter="url(#shadow)"/>
+  <rect x="86" y="148" width="492" height="342" rx="24" fill="url(#screen)"/>
+  <rect x="118" y="183" width="122" height="14" rx="7" fill="#ff6b5f"/>
+  <rect x="118" y="221" width="392" height="12" rx="6" fill="#4dd9ed" opacity=".88"/>
+  <rect x="118" y="253" width="314" height="12" rx="6" fill="#fecaca" opacity=".72"/>
+  <rect x="118" y="285" width="360" height="12" rx="6" fill="#86efac" opacity=".78"/>
+  <rect x="118" y="336" width="142" height="12" rx="6" fill="#fbbf24" opacity=".9"/>
+  <rect x="284" y="336" width="204" height="12" rx="6" fill="#fca5a5" opacity=".86"/>
+  <rect x="118" y="370" width="330" height="12" rx="6" fill="#e5e7eb" opacity=".6"/>
+  <rect x="118" y="404" width="250" height="12" rx="6" fill="#4dd9ed" opacity=".72"/>
+  <g transform="translate(610 150)">
+    <rect width="202" height="72" rx="18" fill="#fff" stroke="#e3e8f3" stroke-width="2"/>
+    <circle cx="38" cy="36" r="18" fill="#ffeeed"/>
+    <path d="M30 39 38 27l8 12M34 39h8" fill="none" stroke="#ff2d20" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"/>
+    <text x="72" y="32" fill="#17213a" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="800">Route</text>
+    <text x="72" y="53" fill="#647089" font-family="Inter, Arial, sans-serif" font-size="13">routes/web.php</text>
+  </g>
+  <g transform="translate(610 264)">
+    <rect width="202" height="72" rx="18" fill="#fff" stroke="#e3e8f3" stroke-width="2"/>
+    <circle cx="38" cy="36" r="18" fill="#ecfeff"/>
+    <path d="M28 36h20M38 26v20" fill="none" stroke="#0ea5b7" stroke-linecap="round" stroke-width="4"/>
+    <text x="72" y="32" fill="#17213a" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="800">Controller</text>
+    <text x="72" y="53" fill="#647089" font-family="Inter, Arial, sans-serif" font-size="13">logic request</text>
+  </g>
+  <g transform="translate(610 378)">
+    <rect width="202" height="72" rx="18" fill="#fff" stroke="#e3e8f3" stroke-width="2"/>
+    <circle cx="38" cy="36" r="18" fill="#fff1f0"/>
+    <path d="M27 31h22M27 40h16" fill="none" stroke="#ff2d20" stroke-linecap="round" stroke-width="4"/>
+    <text x="72" y="32" fill="#17213a" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="800">Blade</text>
+    <text x="72" y="53" fill="#647089" font-family="Inter, Arial, sans-serif" font-size="13">view output</text>
+  </g>
+  <path d="M711 222v36M711 336v36" fill="none" stroke="url(#accent)" stroke-linecap="round" stroke-width="6"/>
+  <path d="M596 320c-58 0-58-80-12-92" fill="none" stroke="#0ea5b7" stroke-linecap="round" stroke-width="5" opacity=".75"/>
+  <g transform="translate(170 520)">
+    <rect width="560" height="34" rx="17" fill="#17213a" opacity=".12"/>
+    <rect x="80" y="-12" width="400" height="30" rx="15" fill="#fff" stroke="#e3e8f3"/>
+    <text x="280" y="8" text-anchor="middle" fill="#647089" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700">request -> route -> controller -> blade -> response</text>
+  </g>
+  <g transform="translate(418 66)">
+    <rect x="-72" y="-28" width="144" height="56" rx="18" fill="url(#accent)"/>
+    <text y="8" text-anchor="middle" fill="#fff" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="800">Laravel Lab</text>
+  </g>
+</svg>
