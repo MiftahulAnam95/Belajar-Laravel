@@ -1200,6 +1200,36 @@ body.dark-mode .brand-logo-dark {
   border-bottom: 1px solid #28384f;
 }
 
+.editor-page-toolbar {
+  align-items: center;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  box-shadow: var(--shadow-sm);
+  color: var(--text);
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  min-height: auto;
+  padding: 0.8rem;
+}
+
+.template-group,
+.editor-actions {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.editor-actions {
+  justify-content: flex-end;
+}
+
+.editor-actions .btn-run {
+  margin-left: 0;
+}
+
 .editor-title {
   font-family: "JetBrains Mono", monospace;
 }
@@ -1236,6 +1266,51 @@ body.dark-mode .brand-logo-dark {
   border-right: 1px solid #28384f;
 }
 
+.editor-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.editor-grid .editor-shell,
+.preview-shell,
+.editor-console-shell {
+  min-width: 0;
+}
+
+.laravel-editor-grid .preview-shell,
+.laravel-editor-grid .editor-console-shell {
+  grid-column: 1 / -1;
+}
+
+.editor-head,
+.preview-head {
+  align-items: center;
+  background: #182235;
+  border-bottom: 1px solid #28384f;
+  color: #afbed2;
+  display: flex;
+  font-size: 0.72rem;
+  font-weight: 800;
+  gap: 0.55rem;
+  justify-content: space-between;
+  min-height: 42px;
+  padding: 0.58rem 0.85rem;
+}
+
+.editor-head span,
+.preview-head span {
+  align-items: center;
+  display: inline-flex;
+  gap: 0.45rem;
+}
+
+.editor-head i,
+.preview-head i {
+  color: var(--cyan);
+  font-size: 0.95rem;
+}
+
 .editor-tabs {
   background: #141e30;
   border-bottom: 1px solid #28384f;
@@ -1270,6 +1345,10 @@ body.dark-mode .brand-logo-dark {
   padding: 0.85rem;
   resize: vertical;
   width: 100%;
+}
+
+.laravel-editor-grid .code-input {
+  min-height: 255px;
 }
 
 .php-code-editor-wrap,
@@ -1857,12 +1936,18 @@ body.dark-mode .brand-logo-dark {
   white-space: nowrap;
 }
 
-.preview-pane {
+.preview-pane,
+.preview-shell {
   background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
   min-height: 354px;
 }
 
-.preview-label {
+.preview-label,
+.preview-head {
   border-bottom: 1px solid #28384f;
 }
 
@@ -1875,6 +1960,11 @@ body.dark-mode .brand-logo-dark {
 }
 
 .console-pane {
+  background: #101827;
+  border: 1px solid #24334d;
+  border-radius: 20px;
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
   border-top: 1px solid #28384f;
 }
 
@@ -3091,6 +3181,29 @@ body.dark-mode .project-example-window {
 
   .code-input {
     min-height: 260px;
+  }
+
+  .editor-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .laravel-editor-grid .preview-shell,
+  .laravel-editor-grid .editor-console-shell {
+    grid-column: auto;
+  }
+
+  .editor-page-toolbar {
+    align-items: stretch;
+  }
+
+  .template-group,
+  .editor-actions {
+    width: 100%;
+  }
+
+  .editor-actions .btn {
+    flex: 1 1 0;
+    justify-content: center;
   }
 
   .editor-color-popover {
