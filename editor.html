@@ -46,10 +46,18 @@
                   <button class="editor-tab" type="button" data-editor-tab="blade">Blade</button>
                   <button class="editor-tab" type="button" data-editor-tab="css">CSS</button>
                 </div>
-                <textarea class="code-input" id="routesEditor" data-editor-panel="routes" aria-label="Editor routes web" spellcheck="false"></textarea>
-                <textarea class="code-input d-none" id="controllerEditor" data-editor-panel="controller" aria-label="Editor controller" spellcheck="false"></textarea>
-                <textarea class="code-input d-none" id="bladeEditor" data-editor-panel="blade" aria-label="Editor Blade" spellcheck="false"></textarea>
-                <textarea class="code-input d-none" id="cssEditor" data-editor-panel="css" aria-label="Editor CSS output" spellcheck="false"></textarea>
+                <div class="php-code-editor-wrap" id="routesEditorWrap" data-editor-panel="routes">
+                  <textarea class="code-input" id="routesEditor" aria-label="Editor routes web" spellcheck="false"></textarea>
+                </div>
+                <div class="php-code-editor-wrap d-none" id="controllerEditorWrap" data-editor-panel="controller">
+                  <textarea class="code-input" id="controllerEditor" aria-label="Editor controller" spellcheck="false"></textarea>
+                </div>
+                <div class="html-editor-wrap d-none" id="htmlEditorWrap" data-editor-panel="blade">
+                  <textarea class="code-input" id="bladeEditor" aria-label="Editor Blade" spellcheck="false"></textarea>
+                </div>
+                <div class="css-editor-wrap d-none" id="cssEditorWrap" data-editor-panel="css">
+                  <textarea class="code-input" id="cssEditor" aria-label="Editor CSS output" spellcheck="false"></textarea>
+                </div>
               </div>
               <div class="col-lg-6 preview-pane">
                 <div class="preview-label"><i class="bi bi-eye"></i> Preview output</div>
