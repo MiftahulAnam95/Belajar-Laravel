@@ -24,47 +24,66 @@
       </section>
       <section class="section-block editor-section" id="editor">
         <div class="container">
-          <div class="section-heading heading-row">
-            <div>
-              <span class="eyebrow">Playground</span>
-              <h2>Coba alur request sampai view secara langsung</h2>
-              <p>Simulator ini cocok untuk memahami konsep. Middleware, database, upload, dan Laravel asli tetap perlu dijalankan lewat project lokal.</p>
-            </div>
-            <span class="status-pill warning"><i class="bi bi-info-circle"></i> Simulator Laravel dasar</span>
+          <div class="section-heading centered-heading">
+            <span class="eyebrow">Playground</span>
+            <h2>Coba alur request sampai view secara langsung</h2>
+            <p>Simulator ini cocok untuk memahami konsep. Middleware, database, upload, dan Laravel asli tetap perlu dijalankan lewat project lokal.</p>
           </div>
-          <div class="editor-shell">
-            <div class="editor-toolbar">
-              <div class="editor-dots"><span></span><span></span><span></span></div>
-              <span class="editor-title">laravel-flow</span>
-              <button class="btn btn-run" id="runEditor" type="button"><i class="bi bi-play-fill"></i> Run</button>
+
+          <div class="editor-toolbar editor-page-toolbar">
+            <div class="template-group">
+              <span class="status-pill warning"><i class="bi bi-info-circle"></i> Simulator Laravel dasar</span>
             </div>
-            <div class="row g-0">
-              <div class="col-lg-6 editor-pane">
-                <div class="editor-tabs" role="tablist" aria-label="File editor Laravel">
-                  <button class="editor-tab active" type="button" data-editor-tab="routes">Route</button>
-                  <button class="editor-tab" type="button" data-editor-tab="controller">Controller</button>
-                  <button class="editor-tab" type="button" data-editor-tab="blade">Blade</button>
-                  <button class="editor-tab" type="button" data-editor-tab="css">CSS</button>
-                </div>
-                <div class="php-code-editor-wrap" id="routesEditorWrap" data-editor-panel="routes">
-                  <textarea class="code-input" id="routesEditor" aria-label="Editor routes web" spellcheck="false"></textarea>
-                </div>
-                <div class="php-code-editor-wrap d-none" id="controllerEditorWrap" data-editor-panel="controller">
-                  <textarea class="code-input" id="controllerEditor" aria-label="Editor controller" spellcheck="false"></textarea>
-                </div>
-                <div class="html-editor-wrap d-none" id="htmlEditorWrap" data-editor-panel="blade">
-                  <textarea class="code-input" id="bladeEditor" aria-label="Editor Blade" spellcheck="false"></textarea>
-                </div>
-                <div class="css-editor-wrap d-none" id="cssEditorWrap" data-editor-panel="css">
-                  <textarea class="code-input" id="cssEditor" aria-label="Editor CSS output" spellcheck="false"></textarea>
-                </div>
+            <div class="editor-actions">
+              <button class="btn btn-run" id="runEditor" type="button"><i class="bi bi-play-fill"></i> Jalankan</button>
+            </div>
+          </div>
+
+          <div class="editor-grid laravel-editor-grid">
+            <div class="editor-shell">
+              <div class="editor-head">
+                <span><i class="bi bi-signpost-split"></i> routes/web.php</span>
               </div>
-              <div class="col-lg-6 preview-pane">
-                <div class="preview-label"><i class="bi bi-eye"></i> Preview output</div>
-                <iframe id="previewFrame" title="Hasil render Blade"></iframe>
+              <div class="php-code-editor-wrap" id="routesEditorWrap">
+                <textarea class="code-input" id="routesEditor" aria-label="Editor routes web" spellcheck="false"></textarea>
               </div>
             </div>
-            <div class="console-pane">
+
+            <div class="editor-shell">
+              <div class="editor-head">
+                <span><i class="bi bi-diagram-3"></i> PageController.php</span>
+              </div>
+              <div class="php-code-editor-wrap" id="controllerEditorWrap">
+                <textarea class="code-input" id="controllerEditor" aria-label="Editor controller" spellcheck="false"></textarea>
+              </div>
+            </div>
+
+            <div class="editor-shell">
+              <div class="editor-head">
+                <span><i class="bi bi-filetype-html"></i> profil.blade.php</span>
+              </div>
+              <div class="html-editor-wrap" id="htmlEditorWrap">
+                <textarea class="code-input" id="bladeEditor" aria-label="Editor Blade" spellcheck="false"></textarea>
+              </div>
+            </div>
+
+            <div class="editor-shell">
+              <div class="editor-head">
+                <span><i class="bi bi-filetype-css"></i> style.css</span>
+              </div>
+              <div class="css-editor-wrap" id="cssEditorWrap">
+                <textarea class="code-input" id="cssEditor" aria-label="Editor CSS output" spellcheck="false"></textarea>
+              </div>
+            </div>
+
+            <div class="preview-shell">
+              <div class="preview-head">
+                <span><i class="bi bi-eye"></i> Preview output</span>
+              </div>
+              <iframe id="previewFrame" title="Hasil render Blade"></iframe>
+            </div>
+
+            <div class="console-pane editor-console-shell">
               <div class="console-label"><i class="bi bi-terminal"></i> Alur simulator</div>
               <div id="editorConsole" aria-live="polite"></div>
             </div>
