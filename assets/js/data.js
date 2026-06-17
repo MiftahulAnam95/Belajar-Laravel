@@ -1947,6 +1947,148 @@ Route::get('/notes', function () {
     { id: "laravel-debugger", title: "Laravel Debugger", icon: "bi-bug-fill", check: (state) => state.completedDebug.length >= 5 }
   ];
 
+  const learningPhases = [
+    {
+      id: "alur-laravel",
+      icon: "bi-signpost-split",
+      label: "Materi 01-05",
+      title: "Kenali Alur Laravel",
+      description: "Pahami Laravel sebagai framework PHP, siapkan project lokal, baca struktur folder, route, parameter, dan named route.",
+      outcome: "Kamu tahu bagaimana URL masuk ke route dan mengapa Laravel perlu dijalankan lewat server lokal.",
+      lessonStart: 0,
+      lessonEnd: 4
+    },
+    {
+      id: "blade-controller",
+      icon: "bi-window-stack",
+      label: "Materi 06-10",
+      title: "Blade, Controller, dan Form",
+      description: "Belajar menampilkan view Blade, membuat layout, memindahkan logika ke controller, membaca request, dan memvalidasi form.",
+      outcome: "Kamu bisa membuat halaman Laravel yang rapi, menerima input, dan menampilkan pesan validasi.",
+      lessonStart: 5,
+      lessonEnd: 9
+    },
+    {
+      id: "database-crud",
+      icon: "bi-database-check",
+      label: "Materi 11-15",
+      title: "Database, Eloquent, dan Proteksi",
+      description: "Masuk ke migration, model Eloquent, CRUD resource, flash message, session, dan middleware untuk membatasi halaman.",
+      outcome: "Kamu mulai bisa membuat aplikasi Laravel yang menyimpan data dan punya alur aksi pengguna.",
+      lessonStart: 10,
+      lessonEnd: 14
+    },
+    {
+      id: "project-api",
+      icon: "bi-rocket-takeoff",
+      label: "Materi 16-20",
+      title: "Fitur Lanjutan dan Project",
+      description: "Latih upload file, pagination, search, route API JSON, mini project, dan tutorial website sederhana dari nol.",
+      outcome: "Kamu siap merakit project Laravel kecil dengan route, controller, Blade, database, validasi, dan API dasar.",
+      lessonStart: 15,
+      lessonEnd: 19
+    }
+  ];
+
+  const starterFlow = [
+    {
+      icon: "bi-window",
+      title: "Browser membuka URL",
+      description: "Pengguna membuka alamat seperti /produk atau /kontak. Laravel menerima request dari browser."
+    },
+    {
+      icon: "bi-signpost-split",
+      title: "Route memilih pintu",
+      description: "routes/web.php menentukan request itu diarahkan ke closure atau method controller yang mana."
+    },
+    {
+      icon: "bi-diagram-3",
+      title: "Controller menyiapkan data",
+      description: "Controller bisa mengambil input, memvalidasi, memanggil model, lalu memilih view atau response."
+    },
+    {
+      icon: "bi-window-sidebar",
+      title: "Blade mengirim tampilan",
+      description: "Blade menerima data dan membuat HTML akhir yang dikirim kembali ke browser."
+    }
+  ];
+
+  const homeDemos = [
+    {
+      id: "route",
+      label: "Route",
+      title: "Route adalah pintu masuk halaman",
+      filename: "routes/web.php",
+      code: `<?php
+
+use Illuminate\\Support\\Facades\\Route;
+
+Route::get('/profil', function () {
+    return 'Halo dari Laravel';
+});`,
+      output: "GET /profil\nHalo dari Laravel",
+      explanation: "Route::get membaca request GET ke URL /profil. Jika URL cocok, Laravel menjalankan isi route dan mengirim response.",
+      task: "Ubah /profil menjadi /belajar, lalu prediksi URL apa yang harus dibuka."
+    },
+    {
+      id: "controller",
+      label: "Controller",
+      title: "Controller memindahkan logika dari route",
+      filename: "app/Http/Controllers/PageController.php",
+      code: `<?php
+
+class PageController extends Controller
+{
+    public function profil()
+    {
+        return view('profil', [
+            'nama' => 'Rina',
+            'level' => 'Pemula Laravel',
+        ]);
+    }
+}`,
+      output: "View profil menerima data:\nnama = Rina\nlevel = Pemula Laravel",
+      explanation: "Controller membantu route tetap rapi. Data disiapkan di controller, lalu dikirim ke Blade.",
+      task: "Ganti nilai nama menjadi namamu sendiri, lalu bayangkan teks di Blade ikut berubah."
+    },
+    {
+      id: "blade",
+      label: "Blade",
+      title: "Blade mengubah data menjadi HTML",
+      filename: "resources/views/profil.blade.php",
+      code: `<h1>Halo, {{ $nama }}</h1>
+
+<ul>
+  @foreach ($materi as $item)
+    <li>{{ $item }}</li>
+  @endforeach
+</ul>`,
+      output: "Halo, Rina\n- Route\n- Controller\n- Blade",
+      explanation: "Blade membaca data dari controller. {{ }} menampilkan teks secara aman, @foreach mengulang daftar.",
+      task: "Tambahkan materi Eloquent ke array, lalu bayangkan satu list baru muncul."
+    },
+    {
+      id: "validasi",
+      label: "Validasi",
+      title: "Laravel mengecek input sebelum diproses",
+      filename: "app/Http/Controllers/ContactController.php",
+      code: `<?php
+
+public function store(Request $request)
+{
+    $data = $request->validate([
+        'nama' => 'required|min:3',
+        'email' => 'required|email',
+    ]);
+
+    return back()->with('status', 'Pesan tersimpan');
+}`,
+      output: "Jika nama kosong: nama wajib diisi\nJika email salah: email harus valid\nJika benar: Pesan tersimpan",
+      explanation: "Validasi menjaga data masuk tetap sesuai aturan sebelum aplikasi menyimpan atau memprosesnya.",
+      task: "Tambahkan field pesan yang wajib diisi, lalu tentukan rule validasinya."
+    }
+  ];
+
   const editorDefaults = {
     routes: `<?php
 
@@ -2011,6 +2153,9 @@ class PageController extends Controller
     debugChallenges,
     projects,
     badges,
+    learningPhases,
+    starterFlow,
+    homeDemos,
     editorDefaults
   };
 })();

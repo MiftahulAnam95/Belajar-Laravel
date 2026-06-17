@@ -16,32 +16,44 @@
     <div id="appNav"></div>
 
     <main>
-      <section class="hero-section" id="home">
+      <section class="home-learning-hero" id="home">
         <div class="container">
-          <div class="row align-items-center g-4 g-lg-5">
-            <div class="col-lg-6">
-              <span class="eyebrow"><i class="bi bi-stars"></i> Lanjutan setelah HTML, CSS, JavaScript, dan PHP</span>
-              <h1>Belajar Laravel dengan Alur Jelas</h1>
-              <p class="hero-copy">Mulai dari memahami route, controller, Blade, validasi, database, Eloquent, CRUD, API, sampai mini project Laravel.</p>
-              <div class="d-flex flex-wrap gap-3">
-                <a class="btn btn-primary btn-lg" href="materi.html">
-                  Mulai Belajar <i class="bi bi-arrow-right"></i>
+          <div class="home-hero-grid">
+            <div class="home-hero-copy">
+              <span class="eyebrow"><i class="bi bi-compass"></i> Jalur belajar Laravel untuk pemula</span>
+              <h1>Belajar Laravel dari nol dengan memahami alur request sampai response</h1>
+              <p class="hero-copy">Mulai dari route, controller, Blade, validasi, database, Eloquent, CRUD, API, sampai mini project Laravel yang utuh.</p>
+              <div class="home-hero-actions">
+                <a class="btn btn-primary btn-lg" id="homeContinueLink" href="materi/intro-laravel.html">
+                  Mulai sesi sekarang <i class="bi bi-arrow-right"></i>
                 </a>
-                <a class="btn btn-soft btn-lg" href="editor.html">
-                  <i class="bi bi-code-slash"></i> Coba Editor
+                <a class="btn btn-soft btn-lg" href="#demo-interaktif">
+                  <i class="bi bi-play-circle"></i> Lihat demo dulu
                 </a>
-              </div>
-              <div class="hero-stats">
-                <span><strong>20</strong> materi bertahap</span>
-                <span><strong>10</strong> latihan debugging</span>
-                <span><strong>100%</strong> ramah pemula</span>
               </div>
             </div>
-            <div class="col-lg-6">
-              <div class="hero-visual">
+
+            <aside class="home-session-panel" aria-label="Sesi belajar berikutnya">
+              <div class="session-visual">
                 <img src="assets/images/laravel-lab-hero.svg" alt="Ilustrasi laptop dengan alur Laravel route controller Blade dan database" />
               </div>
-            </div>
+              <article class="session-card">
+                <span class="mini-label">Sesi berikutnya</span>
+                <h2 id="homeNextLessonTitle">Apa itu Laravel?</h2>
+                <p id="homeNextLessonMeta">Kenali Alur Laravel - 8 menit</p>
+                <div class="session-progress-row">
+                  <span>Progress</span>
+                  <strong id="homeProgressPercent">0%</strong>
+                </div>
+                <div class="session-progress" aria-label="Progress belajar">
+                  <span id="homeProgressBar"></span>
+                </div>
+                <div class="session-stats">
+                  <span><strong id="homeCompletedCount">0/20</strong> materi selesai</span>
+                  <span><strong id="homeCurrentPhase">Kenali Alur Laravel</strong> fase aktif</span>
+                </div>
+              </article>
+            </aside>
           </div>
         </div>
       </section>
@@ -49,51 +61,46 @@
       <section class="section-block compact-section">
         <div class="container">
           <div class="section-heading centered-heading">
-            <span class="eyebrow">Kenapa belajar di sini?</span>
-            <h2>Laravel terasa lebih ringan saat alurnya terlihat jelas</h2>
+            <span class="eyebrow">Cara belajar</span>
+            <h2>Pahami request, route, controller, dan Blade sebelum menghafal fitur</h2>
+            <p>Laravel lebih mudah dipelajari saat kamu melihat perjalanan URL dari browser sampai menjadi response HTML atau JSON.</p>
           </div>
-          <div class="row g-3 g-lg-4">
-            <div class="col-md-4">
-              <article class="feature-card h-100">
-                <span class="feature-icon orange"><i class="bi bi-braces"></i></span>
-                <h3>Analogi interaktif</h3>
-                <p>Laravel dijelaskan melalui alur request, route, controller, Blade, database, dan analogi sehari-hari.</p>
-              </article>
-            </div>
-            <div class="col-md-4">
-              <article class="feature-card h-100">
-                <span class="feature-icon cyan"><i class="bi bi-lightning-charge"></i></span>
-                <h3>Latihan interaktif</h3>
-                <p>Coba simulator alur Laravel, jawab quiz, ingat kembali konsep, lalu belajar membaca error yang umum terjadi.</p>
-              </article>
-            </div>
-            <div class="col-md-4">
-              <article class="feature-card h-100">
-                <span class="feature-icon violet"><i class="bi bi-graph-up-arrow"></i></span>
-                <h3>Smart progress tracker</h3>
-                <p>Perjalanan belajarmu tersimpan otomatis. Kamu selalu tahu langkah kecil berikutnya.</p>
-              </article>
+          <div class="starter-flow" id="starterFlow"></div>
+        </div>
+      </section>
+
+      <section class="section-block alt-section" id="demo-interaktif">
+        <div class="container">
+          <div class="section-heading centered-heading">
+            <span class="eyebrow">Demo interaktif</span>
+            <h2>Laravel menerima request, memilih route, lalu mengirim response</h2>
+            <p>Pilih contoh, lihat kode Laravel di kiri, lalu lihat output yang akan diterima browser di preview.</p>
+          </div>
+          <div class="home-demo-shell">
+            <div class="demo-tabs" id="homeDemoTabs"></div>
+            <div class="demo-workbench">
+              <div id="homeDemoCode"></div>
+              <div class="demo-preview-panel">
+                <div class="preview-head">
+                  <span><i class="bi bi-window"></i> Preview response</span>
+                </div>
+                <iframe id="homeDemoPreview" title="Preview demo Laravel"></iframe>
+                <div class="demo-explain" id="homeDemoExplain"></div>
+                <div class="demo-task" id="homeDemoTask"></div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="section-block alt-section">
+      <section class="section-block">
         <div class="container">
           <div class="section-heading centered-heading">
-            <span class="eyebrow">Pilih ruang belajar</span>
-            <h2>Setiap aktivitas punya halaman sendiri</h2>
-            <p>Buka materi saat ingin memahami konsep, lalu pindah ke ruang latihan saat ingin menguji pemahamanmu.</p>
+            <span class="eyebrow">Peta belajar</span>
+            <h2>Belajar Laravel dibagi menjadi 4 fase yang jelas</h2>
+            <p>Mulai dari alur request, lanjut ke Blade dan form, masuk ke database dan CRUD, lalu tutup dengan fitur lanjutan, API, dan project.</p>
           </div>
-          <div class="home-path-grid">
-            <a class="path-card" href="materi.html"><i class="bi bi-journal-code"></i><strong>Materi</strong><span>20 pelajaran bertahap</span></a>
-            <a class="path-card" href="quiz.html"><i class="bi bi-patch-question"></i><strong>Quiz</strong><span>Uji pemahaman dasar</span></a>
-            <a class="path-card" href="debugging.html"><i class="bi bi-bug"></i><strong>Debugging</strong><span>Belajar membaca bug Laravel</span></a>
-            <a class="path-card" href="recall.html"><i class="bi bi-arrow-repeat"></i><strong>Recall</strong><span>Latih ingatan konsep</span></a>
-            <a class="path-card" href="editor.html"><i class="bi bi-code-square"></i><strong>Editor</strong><span>Simulasikan route ke Blade</span></a>
-            <a class="path-card" href="projects.html"><i class="bi bi-rocket-takeoff"></i><strong>Mini Project</strong><span>Rakit aplikasi Laravel</span></a>
-            <a class="path-card" href="progress.html"><i class="bi bi-graph-up-arrow"></i><strong>Progress</strong><span>Lihat perjalanan belajarmu</span></a>
-          </div>
+          <div class="phase-map" id="homePhaseMap"></div>
         </div>
       </section>
     </main>

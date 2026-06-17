@@ -24,34 +24,21 @@
       </section>
       <section class="section-block compact-section">
         <div class="container">
-          <div class="section-heading centered-heading">
-            <span class="eyebrow">Cara menggunakan materi</span>
-            <h2>Tidak perlu menghafal semuanya sekaligus</h2>
-            <p>Ketik ulang contoh, ubah satu nilai, lihat hasilnya, lalu kerjakan latihan kecil sebelum lanjut.</p>
+          <div class="roadmap-guide">
+            <div>
+              <span class="eyebrow">Belajar dari nol</span>
+              <h2>Tidak perlu menghafal semua fitur Laravel sekaligus.</h2>
+              <p>Untuk pemula, Laravel sebaiknya dipahami sebagai alur: browser meminta URL, route memilih pintu, controller menyiapkan data, lalu Blade atau JSON menjadi response.</p>
+            </div>
+            <ol class="roadmap-guide-list">
+              <li><span>Baca masalah yang ingin diselesaikan materi.</span></li>
+              <li><span>Ketik ulang contoh di file Laravel yang disebutkan.</span></li>
+              <li><span>Ubah satu nilai kecil, lalu refresh browser atau jalankan ulang request.</span></li>
+              <li><span>Jawab recall dan cek debugging sebelum lanjut.</span></li>
+            </ol>
           </div>
-          <div class="row g-3">
-            <div class="col-md-4">
-              <article class="feature-card h-100">
-                <span class="feature-icon orange"><i class="bi bi-1-circle"></i></span>
-                <h3>Baca pelan-pelan</h3>
-                <p>Mulai dari bagian "Mulai dari sini" dan pahami istilah baru dengan bahasa sederhana.</p>
-              </article>
-            </div>
-            <div class="col-md-4">
-              <article class="feature-card h-100">
-                <span class="feature-icon cyan"><i class="bi bi-2-circle"></i></span>
-                <h3>Ketik dan ubah kode</h3>
-                <p>Jangan hanya menyalin. Ubah nama, angka, atau kondisi untuk melihat hubungan kode dan hasil.</p>
-              </article>
-            </div>
-            <div class="col-md-4">
-              <article class="feature-card h-100">
-                <span class="feature-icon violet"><i class="bi bi-3-circle"></i></span>
-                <h3>Lanjut saat sudah paham</h3>
-                <p>Gunakan bagian "Cek sebelum lanjut" untuk memastikan dasar materi sudah cukup kuat.</p>
-              </article>
-            </div>
-          </div>
+
+          <div class="phase-map" id="phaseMap"></div>
         </div>
       </section>
       <section class="section-block compact-section alt-section" id="materi">

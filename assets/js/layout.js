@@ -70,14 +70,13 @@ window.LaravelLabLayout = (() => {
   const renderFooter = () => {
     const target = document.getElementById("appFooter");
     if (!target) return;
-    const rootPath = document.body.dataset.root || "";
 
     target.innerHTML = `
       <footer class="site-footer">
         <div class="container">
           <div class="d-flex flex-column flex-md-row justify-content-between gap-2">
-            <span><strong>Laravel Beginner Lab</strong> &middot; Belajar framework PHP modern dari dasar.</span>
-            <a href="${rootPath}index.html">Kembali ke home</a>
+            <span>Laravel Beginner Lab - project belajar Laravel interaktif setelah PHP dasar.</span>
+            <span>Dibuat untuk membantu pemula memahami Laravel langkah demi langkah.</span>
           </div>
         </div>
       </footer>`;
