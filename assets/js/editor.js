@@ -1,5 +1,6 @@
 window.LaravelLabEditor = (() => {
   const data = window.LaravelLabData;
+  const debugAttemptStorageKey = "laravel-beginner-lab-debug-attempts-v1";
   let elements = {};
 
   const escapeHTML = (value = "") =>
@@ -9,6 +10,39 @@ window.LaravelLabEditor = (() => {
       .replace(/>/g, "&gt;")
       .replace(/"/g, "&quot;")
       .replace(/'/g, "&#039;");
+
+  const loadStoredMap = (key) => {
+    try {
+      const value = JSON.parse(localStorage.getItem(key) || "{}");
+      return value && typeof value === "object" && !Array.isArray(value) ? value : {};
+    } catch (error) {
+      return {};
+    }
+  };
+
+  const getActiveDebugChallenge = () => {
+    const debugId = new URLSearchParams(window.location.search).get("debug");
+    return data.debugChallenges.find((challenge) => challenge.id === debugId);
+  };
+
+  const getDebugEditorTarget = (code = "") => {
+    const source = code.trim();
+    if (/^<|@csrf|@error|@method|\{\{|@foreach|@if/i.test(source)) return "blade";
+    if (/Route::|^use\s+|DB_|GET\s+\/api|routes\/api\.php/i.test(source)) return "routes";
+    if (/class\s+\w+|function\s+\w+|\$request|return\s+view|::create|extends\s+Model/i.test(source)) return "controller";
+    return "routes";
+  };
+
+  const saveDebugDraft = (challenge, code) => {
+    if (!challenge) return;
+    const attempts = loadStoredMap(debugAttemptStorageKey);
+    attempts[challenge.id] = {
+      ...(attempts[challenge.id] || {}),
+      code,
+      updatedAt: new Date().toISOString()
+    };
+    localStorage.setItem(debugAttemptStorageKey, JSON.stringify(attempts));
+  };
 
   const unquote = (value) => value.trim().slice(1, -1).replace(/\\(["'\\])/g, "$1");
 
@@ -299,13 +333,30 @@ window.LaravelLabEditor = (() => {
     };
 
     elements.frame.setAttribute("sandbox", "allow-scripts");
-    elements.routes.value = data.editorDefaults.routes;
-    elements.controller.value = data.editorDefaults.controller;
-    elements.blade.value = data.editorDefaults.blade;
-    elements.css.value = data.editorDefaults.css;
+
+    const activeDebug = getActiveDebugChallenge();
+    const debugAttempt = activeDebug ? loadStoredMap(debugAttemptStorageKey)[activeDebug.id] || {} : {};
+    const debugCode = debugAttempt.code || activeDebug?.code || "";
+    const debugTarget = activeDebug ? getDebugEditorTarget(debugCode) : null;
+    const editorState = { ...data.editorDefaults };
+    if (activeDebug && debugTarget) editorState[debugTarget] = debugCode;
+
+    elements.routes.value = editorState.routes;
+    elements.controller.value = editorState.controller;
+    elements.blade.value = editorState.blade;
+    elements.css.value = editorState.css;
+
+    if (activeDebug && debugTarget) {
+      const head = elements[debugTarget].closest(".editor-shell")?.querySelector(".editor-head span");
+      head?.insertAdjacentHTML("beforeend", ` <span class="editor-debug-badge">debug: ${escapeHTML(activeDebug.title)}</span>`);
+      saveDebugDraft(activeDebug, elements[debugTarget].value);
+    }
 
     [elements.routes, elements.controller, elements.blade, elements.css].forEach((input) => {
       input.addEventListener("keydown", insertTab);
+      if (activeDebug && debugTarget && input === elements[debugTarget]) {
+        input.addEventListener("input", () => saveDebugDraft(activeDebug, input.value));
+      }
     });
 
     document.getElementById("runEditor").addEventListener("click", runEditor);
